@@ -14,13 +14,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="q3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnA3"
+        android:id="@+id/btnAq3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/btnB3"
+        android:id="@+id/btnBq3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,10 +41,10 @@
         android:text="B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnA3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAq3" />
 
     <Button
-        android:id="@+id/btnC3"
+        android:id="@+id/btnCq3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,10 +53,10 @@
         android:text="C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnB3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBq3" />
 
     <Button
-        android:id="@+id/btnD3"
+        android:id="@+id/btnDq3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
         android:text="D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnC3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCq3" />
 
     <Button
         android:id="@+id/resposta3"
@@ -75,7 +75,7 @@
         android:text="resposta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnD3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDq3" />
 
     <TextView
         android:id="@+id/textViewPontoTela3"
@@ -96,5 +96,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resposta3" />
+
+    <TextView
+        android:id="@+id/textViewPegaResposta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPontoTela3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

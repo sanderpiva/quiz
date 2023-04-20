@@ -15,7 +15,7 @@ public class Question2 extends AppCompatActivity {
 
     Button btnAq2, btnBq2, btnCq2, btnDq2, btnPegaResposta2;
     TextView textViewPontoResposta2, textViewPegaResposta2;
-    ProgressBar pb;
+    //ProgressBar pb;
     private String pegaResposta2="";
     private int pontoAcumuladoAteQ2=0;
 
@@ -118,23 +118,22 @@ public class Question2 extends AppCompatActivity {
 
     public void iniciaDados(){
 
-        btnAq2 = findViewById(R.id.btnA);
-        btnBq2 = findViewById(R.id.btnB);
-        btnCq2 = findViewById(R.id.btnC);
-        btnDq2 = findViewById(R.id.btnD);
-        btnPegaResposta2 = findViewById((R.id.resposta1));
-        textViewPontoResposta2 = findViewById(R.id.textViewPontoTela1);
-        textViewPegaResposta2 = findViewById(R.id.textViewPegaResposta1);
-        pb = findViewById(R.id.progressBar);
+        btnAq2 = findViewById(R.id.btnAq2);
+        btnBq2 = findViewById(R.id.btnBq2);
+        btnCq2 = findViewById(R.id.btnCq2);
+        btnDq2 = findViewById(R.id.btnDq2);
+        btnPegaResposta2 = findViewById((R.id.resposta2));
+        textViewPontoResposta2 = findViewById(R.id.textViewPontoTela2);
+        textViewPegaResposta2 = findViewById(R.id.textViewPegaResposta2);
+       // pb = findViewById(R.id.progressBar);
 
     }
 
     public void proximo(){
 
         //ver como passa paramentro:
-        pb.setVisibility(View.VISIBLE);
+        //pb.setVisibility(View.VISIBLE);
         Intent intent = new Intent(Question2.this, Question3.class);
-        //intent.putExtra("Ponto", String.valueOf(textViewPontoResposta1));
         intent.putExtra("PontoQ2", String.valueOf(pontoAcumuladoAteQ2));
         startActivity(intent);
 
