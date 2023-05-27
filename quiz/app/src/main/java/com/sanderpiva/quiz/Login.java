@@ -59,11 +59,11 @@ public class Login extends AppCompatActivity {
                             pb.setVisibility(View.INVISIBLE);
                         }
                     }, 2000); // 2000 milissegundos = 2 segundos
-                    nome.setText("");
-                    email.setText("");
                     Intent intent = new Intent(Login.this, Question1.class);
                     intent.putExtra("Nome", String.valueOf(nome));
                     intent.putExtra("Email", String.valueOf(email));
+                    //nome.setText("");
+                    //email.setText("");
                     startActivity(intent);
                 } else {
                     Toast.makeText(view.getContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show();

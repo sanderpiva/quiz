@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="3- Qual é a memória mais rápida?"
+        android:text="@string/q3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,11 +22,12 @@
     <Button
         android:id="@+id/btnAq3"
         android:layout_width="0dp"
+        android:textAlignment="textStart"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="A- Registradores"
+        android:text="@string/q3a"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -36,9 +37,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textAlignment="textStart"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="B-HD"
+        android:text="@string/q3b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAq3" />
@@ -49,8 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:textAlignment="textStart"
         android:layout_marginEnd="16dp"
-        android:text="C- SSD"
+        android:text="@string/q3c"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBq3" />
@@ -60,9 +63,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textAlignment="textStart"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="D- Cache"
+        android:text="@string/q3d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCq3" />

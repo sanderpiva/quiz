@@ -21,7 +21,7 @@ public class Question2 extends AppCompatActivity {
     private String pegaResposta2="";
     private int pontoAcumuladoAteQ2=0;
     private String respostaSelecionadaQ2 = "";
-
+    private String nome, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,13 @@ public class Question2 extends AppCompatActivity {
 
         Intent intentChamadora = getIntent();
         String pontoQ1 = intentChamadora.getStringExtra("PontoQ1");
+        String nomeTransicao = intentChamadora.getStringExtra("Nome");
+        String emailTransicao = intentChamadora.getStringExtra("Email");
 
         if (pontoQ1 != null) {
             pontoAcumuladoAteQ2 = Integer.parseInt(pontoQ1);
+            nome = nomeTransicao;
+            email= emailTransicao;
 
         } else {
             // Trate o caso em que a string é nula
@@ -146,6 +150,8 @@ public class Question2 extends AppCompatActivity {
         //pb.setVisibility(View.VISIBLE);
         Intent intent = new Intent(Question2.this, Question3.class);
         intent.putExtra("PontoQ2", String.valueOf(pontoAcumuladoAteQ2));
+        intent.putExtra("Nome", nome);
+        intent.putExtra("Email", email);
         startActivity(intent);
 
     }

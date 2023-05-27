@@ -23,6 +23,9 @@ public class Question1 extends AppCompatActivity {
     //ProgressBar pb;
     private String pegaResposta1="";
     private int pontoAcumuladoAteQ1=0;
+    private String nome, email;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,10 @@ public class Question1 extends AppCompatActivity {
         setContentView(R.layout.activity_question1);
 
         Intent intentChamadora = getIntent();
+        String nomeTransicao = intentChamadora.getStringExtra("Nome");
+        String emailTransicao = intentChamadora.getStringExtra("Email");
+        nome = nomeTransicao;
+        email = emailTransicao;
 
         iniciaDados();
 
@@ -137,6 +144,8 @@ public class Question1 extends AppCompatActivity {
        // pb.setVisibility(View.VISIBLE);
         Intent intent = new Intent(Question1.this, Question2.class);
         intent.putExtra("PontoQ1", String.valueOf(pontoAcumuladoAteQ1));
+        intent.putExtra("Nome", nome);
+        intent.putExtra("Email", email);
         startActivity(intent);
 
     }

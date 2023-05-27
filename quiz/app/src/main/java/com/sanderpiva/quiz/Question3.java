@@ -16,7 +16,7 @@ public class Question3 extends AppCompatActivity {
     TextView textViewPontoResposta3, textViewPegaResposta3;
     //ProgressBar pb;
     private String pegaResposta3="";
-
+    private String nome, email;
     private int pontoAcumuladoAteQ3=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,11 @@ public class Question3 extends AppCompatActivity {
         Intent intentChamadora = getIntent();
         String pontoQ2 = intentChamadora.getStringExtra("PontoQ2");
         pontoAcumuladoAteQ3 = Integer.parseInt(pontoQ2);
+        String nomeTransicao = intentChamadora.getStringExtra("Nome");
+        String emailTransicao = intentChamadora.getStringExtra("Email");
+
+        nome=nomeTransicao;
+        email=emailTransicao;
 
         iniciaDados();
 
@@ -132,6 +137,8 @@ public class Question3 extends AppCompatActivity {
 
         Intent intent = new Intent(Question3.this, Resultado.class);
         intent.putExtra("PontoQ3", String.valueOf(pontoAcumuladoAteQ3));
+        intent.putExtra("Nome", nome);
+        intent.putExtra("Email", email);
         startActivity(intent);
 
     }
