@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ public class Question3 extends AppCompatActivity {
     TextView textViewPontoResposta3, textViewPegaResposta3;
     //ProgressBar pb;
     private String pegaResposta3="";
+
     private int pontoAcumuladoAteQ3=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,8 @@ public class Question3 extends AppCompatActivity {
         setContentView(R.layout.activity_question3);
 
         Intent intentChamadora = getIntent();
-        String pontoQ1 = intentChamadora.getStringExtra("PontoQ2");
-        pontoAcumuladoAteQ3 = Integer.parseInt(pontoQ1);
+        String pontoQ2 = intentChamadora.getStringExtra("PontoQ2");
+        pontoAcumuladoAteQ3 = Integer.parseInt(pontoQ2);
 
         iniciaDados();
 
@@ -31,10 +34,10 @@ public class Question3 extends AppCompatActivity {
         btnAq3.setOnClickListener(view -> {
             textViewPegaResposta3.setText("A");
             pegaResposta3 = textViewPegaResposta3.getText().toString();
-            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), android.R.color.holo_orange_dark));
-            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_blue_dark));
-            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_blue_dark));
-            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_blue_dark));
+            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.holo_orange_dark));
+            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.purple_500));
+            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.purple_500));
+            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.purple_500));
 
         });
 
@@ -43,10 +46,10 @@ public class Question3 extends AppCompatActivity {
 
             textViewPegaResposta3.setText("B");
             pegaResposta3 = textViewPegaResposta3.getText().toString();
-            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_orange_dark));
-            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), android.R.color.holo_blue_dark));
-            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_blue_dark));
-            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_blue_dark));
+            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.holo_orange_dark));
+            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.purple_500));
+            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.purple_500));
+            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.purple_500));
 
         });
 
@@ -54,10 +57,10 @@ public class Question3 extends AppCompatActivity {
         btnCq3.setOnClickListener(view -> {
             textViewPegaResposta3.setText("C");
             pegaResposta3 = textViewPegaResposta3.getText().toString();
-            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_orange_dark));
-            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), android.R.color.holo_blue_dark));
-            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_blue_dark));
-            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_blue_dark));
+            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.holo_orange_dark));
+            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.purple_500));
+            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.purple_500));
+            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.purple_500));
 
         });
 
@@ -67,10 +70,10 @@ public class Question3 extends AppCompatActivity {
             textViewPegaResposta3.setText("D");
             pegaResposta3 = textViewPegaResposta3.getText().toString();
 
-            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_orange_dark));
-            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), android.R.color.holo_blue_dark));
-            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_blue_dark));
-            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_blue_dark));
+            btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.holo_orange_dark));
+            btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.purple_500));
+            btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.purple_500));
+            btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.purple_500));
 
         });
 
@@ -86,10 +89,10 @@ public class Question3 extends AppCompatActivity {
 
                     case "A":
 
-                        btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), android.R.color.holo_green_dark));
-                        btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_red_dark));
-                        btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_red_dark));
-                        btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_red_dark));
+                        btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.holo_green_dark));
+                        btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.holo_red_dark));
+                        btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.holo_red_dark));
+                        btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.holo_red_dark));
 
                         pontoAcumuladoAteQ3++;
                         textViewPontoResposta3.setText(String.valueOf(pontoAcumuladoAteQ3));
@@ -100,10 +103,10 @@ public class Question3 extends AppCompatActivity {
                     case "C":
                     case "D":
 
-                        btnAq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_green_dark));
-                        btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), android.R.color.holo_red_dark));
-                        btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), android.R.color.holo_red_dark));
-                        btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), android.R.color.holo_red_dark));
+                        btnAq3.setBackgroundColor(ContextCompat.getColor(btnAq3.getContext(), R.color.holo_green_dark));
+                        btnBq3.setBackgroundColor(ContextCompat.getColor(btnBq3.getContext(), R.color.holo_red_dark));
+                        btnCq3.setBackgroundColor(ContextCompat.getColor(btnCq3.getContext(), R.color.holo_red_dark));
+                        btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.holo_red_dark));
                         textViewPontoResposta3.setText(String.valueOf(pontoAcumuladoAteQ3));
                         proximo();
                         break;
@@ -127,10 +130,8 @@ public class Question3 extends AppCompatActivity {
 
     public void proximo(){
 
-        //ver como passa paramentro:
-        //pb.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(Question3.this, Question4.class);
-        intent.putExtra("PontoQ2", String.valueOf(pontoAcumuladoAteQ3));
+        Intent intent = new Intent(Question3.this, Resultado.class);
+        intent.putExtra("PontoQ3", String.valueOf(pontoAcumuladoAteQ3));
         startActivity(intent);
 
     }

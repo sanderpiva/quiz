@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -18,6 +20,8 @@ public class Question2 extends AppCompatActivity {
     //ProgressBar pb;
     private String pegaResposta2="";
     private int pontoAcumuladoAteQ2=0;
+    private String respostaSelecionadaQ2 = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,14 @@ public class Question2 extends AppCompatActivity {
 
         Intent intentChamadora = getIntent();
         String pontoQ1 = intentChamadora.getStringExtra("PontoQ1");
-        pontoAcumuladoAteQ2 = Integer.parseInt(pontoQ1);
+
+        if (pontoQ1 != null) {
+            pontoAcumuladoAteQ2 = Integer.parseInt(pontoQ1);
+
+        } else {
+            // Trate o caso em que a string é nula
+        }
+
 
         iniciaDados();
 
@@ -35,10 +46,10 @@ public class Question2 extends AppCompatActivity {
         btnAq2.setOnClickListener(view -> {
             textViewPegaResposta2.setText("A");
             pegaResposta2 = textViewPegaResposta2.getText().toString();
-            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), android.R.color.holo_orange_dark));
-            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_blue_dark));
-            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_blue_dark));
-            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_blue_dark));
+            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_orange_dark));
+            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.purple_500));
+            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.purple_500));
+            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.purple_500));
 
         });
 
@@ -47,10 +58,10 @@ public class Question2 extends AppCompatActivity {
 
             textViewPegaResposta2.setText("B");
             pegaResposta2 = textViewPegaResposta2.getText().toString();
-            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_orange_dark));
-            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), android.R.color.holo_blue_dark));
-            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_blue_dark));
-            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_blue_dark));
+            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_orange_dark));
+            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.purple_500));
+            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.purple_500));
+            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.purple_500));
 
         });
 
@@ -58,10 +69,10 @@ public class Question2 extends AppCompatActivity {
         btnCq2.setOnClickListener(view -> {
             textViewPegaResposta2.setText("C");
             pegaResposta2 = textViewPegaResposta2.getText().toString();
-            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_orange_dark));
-            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), android.R.color.holo_blue_dark));
-            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_blue_dark));
-            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_blue_dark));
+            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.holo_orange_dark));
+            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.purple_500));
+            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.purple_500));
+            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.purple_500));
 
         });
 
@@ -71,10 +82,10 @@ public class Question2 extends AppCompatActivity {
             textViewPegaResposta2.setText("D");
             pegaResposta2 = textViewPegaResposta2.getText().toString();
 
-            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_orange_dark));
-            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), android.R.color.holo_blue_dark));
-            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_blue_dark));
-            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_blue_dark));
+            btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.holo_orange_dark));
+            btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.purple_500));
+            btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.purple_500));
+            btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.purple_500));
 
         });
 
@@ -90,10 +101,10 @@ public class Question2 extends AppCompatActivity {
 
                     case "A":
 
-                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), android.R.color.holo_green_dark));
-                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_red_dark));
-                        btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_red_dark));
-                        btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_red_dark));
+                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_green_dark));
+                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_red_dark));
+                        btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.holo_red_dark));
+                        btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.holo_red_dark));
 
                         pontoAcumuladoAteQ2++;
                         textViewPontoResposta2.setText(String.valueOf(pontoAcumuladoAteQ2));
@@ -104,14 +115,15 @@ public class Question2 extends AppCompatActivity {
                     case "C":
                     case "D":
 
-                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_green_dark));
-                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), android.R.color.holo_red_dark));
-                        btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), android.R.color.holo_red_dark));
-                        btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), android.R.color.holo_red_dark));
+                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_green_dark));
+                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_red_dark));
+                        btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.holo_red_dark));
+                        btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.holo_red_dark));
                         textViewPontoResposta2.setText(String.valueOf(pontoAcumuladoAteQ2));
                         proximo();
                         break;
                 }
+
             }
         });
     }
@@ -125,7 +137,6 @@ public class Question2 extends AppCompatActivity {
         btnPegaResposta2 = findViewById((R.id.resposta2));
         textViewPontoResposta2 = findViewById(R.id.textViewPontoTela2);
         textViewPegaResposta2 = findViewById(R.id.textViewPegaResposta2);
-       // pb = findViewById(R.id.progressBar);
 
     }
 
@@ -138,6 +149,7 @@ public class Question2 extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 }
 
 
