@@ -15,17 +15,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 
 public class Question1 extends AppCompatActivity {
 
     Button btnAq1, btnBq1, btnCq1, btnDq1, btnPegaResposta1;
     TextView textViewPontoResposta1, textViewPegaResposta1;
-    //ProgressBar pb;
     private String pegaResposta1="";
     private int pontoAcumuladoAteQ1=0;
-    private String nome, email;
-
-
+    private String nome, idade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +32,11 @@ public class Question1 extends AppCompatActivity {
         setContentView(R.layout.activity_question1);
 
         Intent intentChamadora = getIntent();
-        String nomeTransicao = intentChamadora.getStringExtra("Nome");
-        String emailTransicao = intentChamadora.getStringExtra("Email");
+        String nomeTransicao = intentChamadora.getStringExtra("NOME");
+        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
+
         nome = nomeTransicao;
-        email = emailTransicao;
+        idade = idadeTransicao;
 
         iniciaDados();
 
@@ -52,7 +52,6 @@ public class Question1 extends AppCompatActivity {
 
         });
 
-
         btnBq1.setOnClickListener(view -> {
 
             textViewPegaResposta1.setText("B");
@@ -64,7 +63,6 @@ public class Question1 extends AppCompatActivity {
 
         });
 
-
         btnCq1.setOnClickListener(view -> {
             textViewPegaResposta1.setText("C");
             pegaResposta1 = textViewPegaResposta1.getText().toString();
@@ -74,7 +72,6 @@ public class Question1 extends AppCompatActivity {
             btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.purple_500));
 
         });
-
 
         btnDq1.setOnClickListener(view -> {
 
@@ -124,9 +121,7 @@ public class Question1 extends AppCompatActivity {
             }
         });
     }
-
     public void iniciaDados(){
-
         btnAq1 = findViewById(R.id.btnAq1);
         btnBq1 = findViewById(R.id.btnBq1);
         btnCq1 = findViewById(R.id.btnCq1);
@@ -134,39 +129,13 @@ public class Question1 extends AppCompatActivity {
         btnPegaResposta1 = findViewById((R.id.resposta1));
         textViewPontoResposta1 = findViewById(R.id.textViewPontoTela1);
         textViewPegaResposta1 = findViewById(R.id.textViewPegaResposta1);
-       // pb = findViewById(R.id.progressBar);
-
     }
-
     public void proximo(){
 
-        //ver como passa paramentro:
-       // pb.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(Question1.this, Question2.class);
-        intent.putExtra("PontoQ1", String.valueOf(pontoAcumuladoAteQ1));
-        intent.putExtra("Nome", nome);
-        intent.putExtra("Email", email);
+        Intent intent = new Intent(getBaseContext(), Question2.class);
+        intent.putExtra("PontoAcumuladoAteQ1", String.valueOf(pontoAcumuladoAteQ1));
+        intent.putExtra("NOME", nome);
+        intent.putExtra("IDADE", idade);
         startActivity(intent);
-
     }
-
 }
-
-/*
-
-Vamos analisar cada parâmetro da linha de código btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.purple_500));:
-
-btnDq1: É uma referência a um objeto do tipo Button ou uma subclasse de Button. Este é o botão ao qual você deseja definir a cor de fundo.
-
-setBackgroundColor(): É um método usado para definir a cor de fundo de um elemento de interface do usuário, como um botão. Ele recebe um valor de cor como argumento para definir a cor de fundo do elemento.
-
-ContextCompat.getColor(): É um método auxiliar da classe ContextCompat que permite obter uma cor de recursos compatível com versões anteriores do Android. Ele recebe dois argumentos:
-
-btnDq1.getContext(): Obtém o contexto do botão btnDq1. O contexto é usado para acessar os recursos do aplicativo, como cores, strings e layouts.
-
-R.color.purple_500: É uma referência ao identificador de recurso da cor definida no arquivo colors.xml. O prefixo R.color indica que estamos referenciando uma cor no arquivo colors.xml, enquanto purple_500 é o nome da cor especificada no arquivo.
-
-Dessa forma, a linha de código em questão define a cor de fundo do botão btnDq1 com a cor definida no arquivo colors.xml com o nome purple_500.
-
-
- */

@@ -15,4 +15,13 @@
     <string name="q3b">B-HD</string>
     <string name="q3c">C- SSD</string>
     <string name="q3d">D- Cache</string>
+    <string name="resultado">Resultado</string>
+    <string name="pontuacaoFinalLabel">Pontuação Final</string>
+    <string name="premio">Prêmio</string>
+    <string name="respostaQ3btn">resposta</string>
+    <string name="ptosAcumuladoslbl3">Pontos acumulados</string>
+    <string name="respostaQ2btn">resposta</string>
+    <string name="ptosAcumuladosQ2lbl">Pontos acumulados</string>
+    <string name="respostaQ1btn">resposta</string>
+    <string name="ptosAcumuladosQ1lbl">Pontos acumulados</string>
 </resources>

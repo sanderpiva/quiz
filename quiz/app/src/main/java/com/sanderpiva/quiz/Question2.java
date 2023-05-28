@@ -1,15 +1,12 @@
 package com.sanderpiva.quiz;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +14,10 @@ public class Question2 extends AppCompatActivity {
 
     Button btnAq2, btnBq2, btnCq2, btnDq2, btnPegaResposta2;
     TextView textViewPontoResposta2, textViewPegaResposta2;
-    //ProgressBar pb;
     private String pegaResposta2="";
     private int pontoAcumuladoAteQ2=0;
     private String respostaSelecionadaQ2 = "";
-    private String nome, email;
+    private String nome, idade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +25,13 @@ public class Question2 extends AppCompatActivity {
         setContentView(R.layout.activity_question2);
 
         Intent intentChamadora = getIntent();
-        String pontoQ1 = intentChamadora.getStringExtra("PontoQ1");
-        String nomeTransicao = intentChamadora.getStringExtra("Nome");
-        String emailTransicao = intentChamadora.getStringExtra("Email");
+        String pontoQ1 = intentChamadora.getStringExtra("PontoAcumuladoAteQ1");
+        String nomeTransicao = intentChamadora.getStringExtra("NOME");
+        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
 
-        if (pontoQ1 != null) {
-            pontoAcumuladoAteQ2 = Integer.parseInt(pontoQ1);
-            nome = nomeTransicao;
-            email= emailTransicao;
-
-        } else {
-            // Trate o caso em que a string é nula
-        }
-
+        pontoAcumuladoAteQ2 = Integer.parseInt(pontoQ1);
+        nome = nomeTransicao;
+        idade = idadeTransicao;
 
         iniciaDados();
 
@@ -57,7 +47,6 @@ public class Question2 extends AppCompatActivity {
 
         });
 
-
         btnBq2.setOnClickListener(view -> {
 
             textViewPegaResposta2.setText("B");
@@ -69,7 +58,6 @@ public class Question2 extends AppCompatActivity {
 
         });
 
-
         btnCq2.setOnClickListener(view -> {
             textViewPegaResposta2.setText("C");
             pegaResposta2 = textViewPegaResposta2.getText().toString();
@@ -79,7 +67,6 @@ public class Question2 extends AppCompatActivity {
             btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.purple_500));
 
         });
-
 
         btnDq2.setOnClickListener(view -> {
 
@@ -131,7 +118,6 @@ public class Question2 extends AppCompatActivity {
             }
         });
     }
-
     public void iniciaDados(){
 
         btnAq2 = findViewById(R.id.btnAq2);
@@ -141,24 +127,17 @@ public class Question2 extends AppCompatActivity {
         btnPegaResposta2 = findViewById((R.id.resposta2));
         textViewPontoResposta2 = findViewById(R.id.textViewPontoTela2);
         textViewPegaResposta2 = findViewById(R.id.textViewPegaResposta2);
-
     }
-
     public void proximo(){
 
         //ver como passa paramentro:
         //pb.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(Question2.this, Question3.class);
-        intent.putExtra("PontoQ2", String.valueOf(pontoAcumuladoAteQ2));
-        intent.putExtra("Nome", nome);
-        intent.putExtra("Email", email);
+        Intent intent = new Intent(getBaseContext(), Question3.class);
+        intent.putExtra("PontoAcumuladoAteQ2", String.valueOf(pontoAcumuladoAteQ2));
+        intent.putExtra("NOME", nome);
+        intent.putExtra("IDADE", idade);
         startActivity(intent);
-
     }
-
 }
-
-
-
 
 

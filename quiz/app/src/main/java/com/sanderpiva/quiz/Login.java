@@ -15,7 +15,7 @@ import android.content.SharedPreferences;
 
 public class Login extends AppCompatActivity {
     private EditText nome;
-    private EditText email;
+    private EditText idade;
     private Button logar;
 
     private ProgressBar pb;
@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     private static final String PREFS_KEY = "dados";
 
     private static final String NOME = "nome";
-    private static final String EMAIL = "email";
+    private static final String IDADE = "idade";
     private SharedPreferences preferences;
 
     @Override
@@ -31,12 +31,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Carregar o preferences
-        preferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
-
-
         nome = findViewById(R.id.editTextNome);
-        email = findViewById(R.id.editTextEmail);
+        idade = findViewById(R.id.editTextIdade);
         logar = findViewById(R.id.btnLogar);
         pb = findViewById(R.id.progressBar);
         pb.setVisibility(View.INVISIBLE);
@@ -46,9 +42,9 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
 
                 String nome1 = nome.getText().toString();
-                String email1 = email.getText().toString();
+                String idade1 = idade.getText().toString();
 
-                if (!nome1.isEmpty() && !email1.isEmpty()) {
+                if (!nome1.isEmpty() && !idade1.isEmpty()) {
                     pb.setVisibility(View.VISIBLE);
                     // Crie um Handler para lidar com atrasos
                     Handler handler = new Handler();
@@ -59,11 +55,10 @@ public class Login extends AppCompatActivity {
                             pb.setVisibility(View.INVISIBLE);
                         }
                     }, 2000); // 2000 milissegundos = 2 segundos
-                    Intent intent = new Intent(Login.this, Question1.class);
-                    intent.putExtra("Nome", String.valueOf(nome));
-                    intent.putExtra("Email", String.valueOf(email));
-                    //nome.setText("");
-                    //email.setText("");
+                    Intent intent = new Intent(getBaseContext(), Question1.class);
+                    intent.putExtra("NOME", nome1);
+                    intent.putExtra("IDADE", idade1);
+
                     startActivity(intent);
                 } else {
                     Toast.makeText(view.getContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show();
@@ -84,9 +79,9 @@ public class Login extends AppCompatActivity {
             editor.apply();
         }
 
-        String emailCapturado = email.getText().toString();
-        if(!emailCapturado.equals("")){
-            editor.putString(EMAIL, emailCapturado);
+        String idadeCapturado = idade.getText().toString();
+        if(!idadeCapturado.equals("")){
+            editor.putString(IDADE, idadeCapturado);
             //editor.commit();// commit faz persistencia de forma sincrona ou
             editor.apply();
         }
@@ -96,16 +91,19 @@ public class Login extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        //Carregar o preferences
+        preferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
+
         if(preferences.contains(NOME)){
 
             String nomeCapturado = preferences.getString(NOME,"");
             nome.setText(nomeCapturado);
         }
 
-        if(preferences.contains(EMAIL)){
+        if(preferences.contains(IDADE)){
 
-            String emailCapturado = preferences.getString(EMAIL,"");
-            email.setText(emailCapturado);
+            String emailCapturado = preferences.getString(IDADE,"");
+            idade.setText(emailCapturado);
         }
     }
 }

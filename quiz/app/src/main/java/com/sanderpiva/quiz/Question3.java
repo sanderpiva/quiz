@@ -16,7 +16,7 @@ public class Question3 extends AppCompatActivity {
     TextView textViewPontoResposta3, textViewPegaResposta3;
     //ProgressBar pb;
     private String pegaResposta3="";
-    private String nome, email;
+    private String nome, idade;
     private int pontoAcumuladoAteQ3=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,13 @@ public class Question3 extends AppCompatActivity {
         setContentView(R.layout.activity_question3);
 
         Intent intentChamadora = getIntent();
-        String pontoQ2 = intentChamadora.getStringExtra("PontoQ2");
+        String pontoQ2 = intentChamadora.getStringExtra("PontoAcumuladoAteQ2");
         pontoAcumuladoAteQ3 = Integer.parseInt(pontoQ2);
-        String nomeTransicao = intentChamadora.getStringExtra("Nome");
-        String emailTransicao = intentChamadora.getStringExtra("Email");
+        String nomeTransicao = intentChamadora.getStringExtra("NOME");
+        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
 
         nome=nomeTransicao;
-        email=emailTransicao;
+        idade=idadeTransicao;
 
         iniciaDados();
 
@@ -46,7 +46,6 @@ public class Question3 extends AppCompatActivity {
 
         });
 
-
         btnBq3.setOnClickListener(view -> {
 
             textViewPegaResposta3.setText("B");
@@ -58,7 +57,6 @@ public class Question3 extends AppCompatActivity {
 
         });
 
-
         btnCq3.setOnClickListener(view -> {
             textViewPegaResposta3.setText("C");
             pegaResposta3 = textViewPegaResposta3.getText().toString();
@@ -68,7 +66,6 @@ public class Question3 extends AppCompatActivity {
             btnDq3.setBackgroundColor(ContextCompat.getColor(btnDq3.getContext(), R.color.purple_500));
 
         });
-
 
         btnDq3.setOnClickListener(view -> {
 
@@ -119,7 +116,6 @@ public class Question3 extends AppCompatActivity {
             }
         });
     }
-
     public void iniciaDados(){
 
         btnAq3 = findViewById(R.id.btnAq3);
@@ -132,13 +128,12 @@ public class Question3 extends AppCompatActivity {
         // pb = findViewById(R.id.progressBar);
 
     }
-
     public void proximo(){
 
-        Intent intent = new Intent(Question3.this, Resultado.class);
-        intent.putExtra("PontoQ3", String.valueOf(pontoAcumuladoAteQ3));
-        intent.putExtra("Nome", nome);
-        intent.putExtra("Email", email);
+        Intent intent = new Intent(getBaseContext(), Resultado.class);
+        intent.putExtra("PontoAcumuladoAteQ3", String.valueOf(pontoAcumuladoAteQ3));
+        intent.putExtra("NOME", nome);
+        intent.putExtra("IDADE", idade);
         startActivity(intent);
 
     }
