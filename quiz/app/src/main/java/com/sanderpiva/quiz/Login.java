@@ -44,22 +44,32 @@ public class Login extends AppCompatActivity {
                 String nome1 = nome.getText().toString();
                 String idade1 = idade.getText().toString();
 
-                if (!nome1.isEmpty() && !idade1.isEmpty()) {
-                    pb.setVisibility(View.VISIBLE);
-                    // Crie um Handler para lidar com atrasos
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Defina a visibilidade do ProgressBar como invisível após 2 segundos (2000 milissegundos)
-                            pb.setVisibility(View.INVISIBLE);
-                        }
-                    }, 2000); // 2000 milissegundos = 2 segundos
-                    Intent intent = new Intent(getBaseContext(), Question1.class);
-                    intent.putExtra("NOME", nome1);
-                    intent.putExtra("IDADE", idade1);
+                Integer idadeChecada = Integer.parseInt(idade1);
 
-                    startActivity(intent);
+                if (!nome1.isEmpty() && !idade1.isEmpty()) {
+
+                    if(idadeChecada>13){
+
+                        pb.setVisibility(View.VISIBLE);
+                        // Crie um Handler para lidar com atrasos
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Defina a visibilidade do ProgressBar como invisível após 2 segundos (2000 milissegundos)
+                                pb.setVisibility(View.INVISIBLE);
+                            }
+                        }, 2000); // 2000 milissegundos = 2 segundos
+                        Intent intent = new Intent(getBaseContext(), Question1.class);
+                        intent.putExtra("NOME", nome1);
+                        intent.putExtra("IDADE", idade1);
+
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(view.getContext(), "Idade: maior 14 anos", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 } else {
                     Toast.makeText(view.getContext(), "Preencha todos os dados", Toast.LENGTH_SHORT).show();
                 }

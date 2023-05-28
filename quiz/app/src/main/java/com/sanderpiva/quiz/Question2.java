@@ -90,10 +90,10 @@ public class Question2 extends AppCompatActivity {
 
                 switch (pegaResposta2){
 
-                    case "A":
+                    case "B":
 
-                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_green_dark));
-                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_red_dark));
+                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_green_dark));
+                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_red_dark));
                         btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.holo_red_dark));
                         btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.holo_red_dark));
 
@@ -102,11 +102,11 @@ public class Question2 extends AppCompatActivity {
                         proximo();
 
                         break;
-                    case "B":
+                    case "A":
                     case "C":
                     case "D":
 
-                        btnAq2.setBackgroundColor(ContextCompat.getColor(btnAq2.getContext(), R.color.holo_green_dark));
+                        btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_green_dark));
                         btnBq2.setBackgroundColor(ContextCompat.getColor(btnBq2.getContext(), R.color.holo_red_dark));
                         btnCq2.setBackgroundColor(ContextCompat.getColor(btnCq2.getContext(), R.color.holo_red_dark));
                         btnDq2.setBackgroundColor(ContextCompat.getColor(btnDq2.getContext(), R.color.holo_red_dark));

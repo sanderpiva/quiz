@@ -2,12 +2,12 @@
     <string name="app_name">Quiz sobre Sistemas Operacionais</string>
     <string name="q1">1- O que é um processo?</string>
     <string name="q1a">A- Programa em execução</string>
-    <string name="q1b">B- Uma tarefa a ser feita</string>
+    <string name="q1b">B- Algoritmo codificado</string>
     <string name="q1c">C- Uma ação na justiça</string>
     <string name="q1d">D- Nenhuma das alternativas</string>
     <string name="q2">2- Escalonador de processo é:</string>
-    <string name="q2a">A- Um processo que chama outro processo</string>
-    <string name="q2b">B- Definidor de escalas</string>
+    <string name="q2a">A- Definidor de escalas</string>
+    <string name="q2b">B- Um processo que chama outro processo</string>
     <string name="q2c">C- capaz de dispachar processo na tabela BCP</string>
     <string name="q2d">D- Nenhuma das alternativas</string>
     <string name="q3">3- Qual é a memória mais rápida?</string>

@@ -38,7 +38,7 @@ public class Resultado extends AppCompatActivity {
         System.out.println(nome+idade);
         Integer idadeInt = Integer.parseInt(idade);
 
-        if(pontoTotal.equals("3") && (idadeInt>10 && idadeInt<=30)){
+        if(pontoTotal.equals("3") && (idadeInt>13 && idadeInt<=30)){
            ganhador = findViewById(R.id.textViewGanhador);
            ganhador.setText("Ganhador: "+nome+", idade: "+idade+"anos");
            premio = findViewById(R.id.textViewPremio);
