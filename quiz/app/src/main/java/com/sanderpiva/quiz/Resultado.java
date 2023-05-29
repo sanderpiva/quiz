@@ -45,7 +45,7 @@ public class Resultado extends AppCompatActivity {
            image = findViewById(R.id.imageViewPremio);
            image.setImageResource(R.drawable.hopirari);
 
-        }else if(pontoTotal.equals("3") && (idadeInt>26)){
+        }else if(pontoTotal.equals("3") && (idadeInt>=26)){
             ganhador = findViewById(R.id.textViewGanhador);
             ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
             premio = findViewById(R.id.textViewPremio);
