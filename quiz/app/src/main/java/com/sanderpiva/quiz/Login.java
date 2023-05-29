@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 
@@ -17,7 +18,6 @@ public class Login extends AppCompatActivity {
     private EditText nome;
     private EditText idade;
     private Button logar;
-
     private ProgressBar pb;
 
     private static final String PREFS_KEY = "dados";

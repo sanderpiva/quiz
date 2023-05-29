@@ -35,20 +35,19 @@ public class Resultado extends AppCompatActivity {
         nome=nomeTransicao;
         idade=idadeTransicao;
 
-        System.out.println(nome+idade);
         Integer idadeInt = Integer.parseInt(idade);
 
-        if(pontoTotal.equals("3") && (idadeInt>13 && idadeInt<=30)){
+        if(pontoTotal.equals("3") && (idadeInt>13 && idadeInt<=25)){
            ganhador = findViewById(R.id.textViewGanhador);
-           ganhador.setText("Ganhador: "+nome+", idade: "+idade+"anos");
+           ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
            premio = findViewById(R.id.textViewPremio);
            premio.setText("Ganhou Viagem HopiHari");
            image = findViewById(R.id.imageViewPremio);
            image.setImageResource(R.drawable.hopirari);
 
-        }else if(pontoTotal.equals("3") && (idadeInt>=31)){
+        }else if(pontoTotal.equals("3") && (idadeInt>26)){
             ganhador = findViewById(R.id.textViewGanhador);
-            ganhador.setText("Ganhador: "+nome+", idade: "+idade+"anos");
+            ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
             premio = findViewById(R.id.textViewPremio);
             premio.setText("Ganhou Viagem Caldas Novas");
             image = findViewById(R.id.imageViewPremio);
@@ -58,7 +57,7 @@ public class Resultado extends AppCompatActivity {
             ganhador = findViewById(R.id.textViewGanhador);
             ganhador.setText("Não foi dessa vez, que pena");
             premio = findViewById(R.id.textViewPremio);
-            premio.setText("Não ganhou premio surpresa");
+            premio.setText("Não ganhou prêmio surpresa");
         }
     }
 }
