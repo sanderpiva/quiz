@@ -56,15 +56,15 @@ public class Login extends AppCompatActivity {
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                // Defina a visibilidade do ProgressBar como invisível após 2 segundos (2000 milissegundos)
-                                pb.setVisibility(View.INVISIBLE);
-                            }
-                        }, 2000); // 2000 milissegundos = 2 segundos
-                        Intent intent = new Intent(getBaseContext(), Question1.class);
-                        intent.putExtra("NOME", nome1);
-                        intent.putExtra("IDADE", idade1);
 
-                        startActivity(intent);
+                                pb.setVisibility(View.INVISIBLE);
+                                Intent intent = new Intent(getBaseContext(), Question1.class);
+                                intent.putExtra("NOME", nome1);
+                                intent.putExtra("IDADE", idade1);
+                                startActivity(intent);
+                            }
+                        }, 4000);
+
                     }else{
                         Toast.makeText(view.getContext(), "Idade: maior 14 anos", Toast.LENGTH_SHORT).show();
                     }
