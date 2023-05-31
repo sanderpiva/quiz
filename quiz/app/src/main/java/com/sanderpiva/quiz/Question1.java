@@ -5,23 +5,18 @@ import androidx.core.content.ContextCompat;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-
-
 public class Question1 extends AppCompatActivity {
 
     Button btnAq1, btnBq1, btnCq1, btnDq1, btnPegaResposta1;
-    TextView textViewPontoResposta1, textViewPegaResposta1;
+    TextView textViewPontoAcumuladoAteRespostaQ1, textViewPegaResposta1;
+    ProgressBar pb;
     private String pegaResposta1="";
     private int pontoAcumuladoAteQ1=0;
     private String nome, idade;
@@ -40,49 +35,34 @@ public class Question1 extends AppCompatActivity {
 
         iniciaDados();
 
-        textViewPontoResposta1.setText(String.valueOf(pontoAcumuladoAteQ1));
+        textViewPontoAcumuladoAteRespostaQ1.setText(String.valueOf(pontoAcumuladoAteQ1));
 
         btnAq1.setOnClickListener(view -> {
+
             textViewPegaResposta1.setText("A");
             pegaResposta1 = textViewPegaResposta1.getText().toString();
-            btnAq1.setBackgroundColor(ContextCompat.getColor(btnAq1.getContext(), R.color.holo_orange_dark));
-            btnBq1.setBackgroundColor(ContextCompat.getColor(btnBq1.getContext(), R.color.purple_500));
-            btnCq1.setBackgroundColor(ContextCompat.getColor(btnCq1.getContext(), R.color.purple_500));
-            btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.purple_500));
-
+            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnBq1.setOnClickListener(view -> {
 
             textViewPegaResposta1.setText("B");
             pegaResposta1 = textViewPegaResposta1.getText().toString();
-            btnBq1.setBackgroundColor(ContextCompat.getColor(btnBq1.getContext(), R.color.holo_orange_dark));
-            btnAq1.setBackgroundColor(ContextCompat.getColor(btnAq1.getContext(), R.color.purple_500));
-            btnCq1.setBackgroundColor(ContextCompat.getColor(btnCq1.getContext(), R.color.purple_500));
-            btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.purple_500));
-
+            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnCq1.setOnClickListener(view -> {
+
             textViewPegaResposta1.setText("C");
             pegaResposta1 = textViewPegaResposta1.getText().toString();
-            btnCq1.setBackgroundColor(ContextCompat.getColor(btnCq1.getContext(), R.color.holo_orange_dark));
-            btnAq1.setBackgroundColor(ContextCompat.getColor(btnAq1.getContext(), R.color.purple_500));
-            btnBq1.setBackgroundColor(ContextCompat.getColor(btnBq1.getContext(), R.color.purple_500));
-            btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.purple_500));
-
+            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnDq1.setOnClickListener(view -> {
 
             textViewPegaResposta1.setText("D");
             pegaResposta1 = textViewPegaResposta1.getText().toString();
-
-            btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.holo_orange_dark));
-            btnAq1.setBackgroundColor(ContextCompat.getColor(btnAq1.getContext(), R.color.purple_500));
-            btnBq1.setBackgroundColor(ContextCompat.getColor(btnBq1.getContext(), R.color.purple_500));
-            btnCq1.setBackgroundColor(ContextCompat.getColor(btnCq1.getContext(), R.color.purple_500));
-
+            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnPegaResposta1.setOnClickListener(view -> {
@@ -102,8 +82,8 @@ public class Question1 extends AppCompatActivity {
                         btnCq1.setBackgroundColor(ContextCompat.getColor(btnCq1.getContext(), R.color.holo_red_dark));
                         btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.holo_red_dark));
                         pontoAcumuladoAteQ1++;
-                        textViewPontoResposta1.setText(String.valueOf(pontoAcumuladoAteQ1));
-                        proximo();
+                        textViewPontoAcumuladoAteRespostaQ1.setText(String.valueOf(pontoAcumuladoAteQ1));
+                        proximaTela();
 
                         break;
                     case "B":
@@ -114,8 +94,8 @@ public class Question1 extends AppCompatActivity {
                         btnBq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.holo_red_dark));
                         btnCq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.holo_red_dark));
                         btnDq1.setBackgroundColor(ContextCompat.getColor(btnDq1.getContext(), R.color.holo_red_dark));
-                        textViewPontoResposta1.setText(String.valueOf(pontoAcumuladoAteQ1));
-                        proximo();
+                        textViewPontoAcumuladoAteRespostaQ1.setText(String.valueOf(pontoAcumuladoAteQ1));
+                        proximaTela();
                         break;
                 }
             }
@@ -127,15 +107,27 @@ public class Question1 extends AppCompatActivity {
         btnCq1 = findViewById(R.id.btnCq1);
         btnDq1 = findViewById(R.id.btnDq1);
         btnPegaResposta1 = findViewById((R.id.resposta1));
-        textViewPontoResposta1 = findViewById(R.id.textViewPontoTela1);
+        textViewPontoAcumuladoAteRespostaQ1 = findViewById(R.id.textViewPontoTela1);
         textViewPegaResposta1 = findViewById(R.id.textViewPegaResposta1);
+        pb = findViewById(R.id.progressBarQ1);
+        pb.setVisibility(View.INVISIBLE);
     }
-    public void proximo(){
+    public void proximaTela(){
 
-        Intent intent = new Intent(getBaseContext(), Question2.class);
-        intent.putExtra("PontoAcumuladoAteQ1", String.valueOf(pontoAcumuladoAteQ1));
-        intent.putExtra("NOME", nome);
-        intent.putExtra("IDADE", idade);
-        startActivity(intent);
+        pb.setVisibility(View.VISIBLE);
+        // Crie um Handler para lidar com atrasos
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                pb.setVisibility(View.INVISIBLE);
+                Intent intent = new Intent(getBaseContext(), Question2.class);
+                intent.putExtra("PontoAcumuladoAteQ1", String.valueOf(pontoAcumuladoAteQ1));
+                intent.putExtra("NOME", nome);
+                intent.putExtra("IDADE", idade);
+                startActivity(intent);
+            }
+        }, 3000);
     }
 }

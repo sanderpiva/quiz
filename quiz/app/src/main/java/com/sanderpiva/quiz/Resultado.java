@@ -49,7 +49,7 @@ public class Resultado extends AppCompatActivity {
             ganhador = findViewById(R.id.textViewGanhador);
             ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
             premio = findViewById(R.id.textViewPremio);
-            premio.setText("Ganhou Viagem Caldas Novas");
+            premio.setText("Ganhou Viagem Caldas Novas GO");
             image = findViewById(R.id.imageViewPremio);
             image.setImageResource(R.drawable.caldasnovas);
 
