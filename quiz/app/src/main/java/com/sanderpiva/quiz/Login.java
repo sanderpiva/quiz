@@ -10,18 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 
 public class Login extends AppCompatActivity {
     private EditText nome;
     private EditText idade;
-    private Button logar;
     private ProgressBar pb;
-
     private static final String PREFS_KEY = "dados";
-
     private static final String NOME = "nome";
     private static final String IDADE = "idade";
     private SharedPreferences preferences;
@@ -33,7 +29,7 @@ public class Login extends AppCompatActivity {
 
         nome = findViewById(R.id.editTextNome);
         idade = findViewById(R.id.editTextIdade);
-        logar = findViewById(R.id.btnLogar);
+        Button logar = findViewById(R.id.btnLogar);
         pb = findViewById(R.id.progressBar);
         pb.setVisibility(View.INVISIBLE);
 
@@ -41,17 +37,17 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String nome1 = nome.getText().toString();
-                String idade1 = idade.getText().toString();
+                String nomeCapturado = nome.getText().toString();
+                String idadeCapturada = idade.getText().toString();
 
-                Integer idadeChecada = Integer.parseInt(idade1);
+                if (!nomeCapturado.isEmpty() && !idadeCapturada.isEmpty()) {
 
-                if (!nome1.isEmpty() && !idade1.isEmpty()) {
+                    int idadeChecada = Integer.parseInt(idadeCapturada);
 
                     if(idadeChecada>13){
 
                         pb.setVisibility(View.VISIBLE);
-                        // Crie um Handler para lidar com atrasos
+
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -59,8 +55,8 @@ public class Login extends AppCompatActivity {
 
                                 pb.setVisibility(View.INVISIBLE);
                                 Intent intent = new Intent(getBaseContext(), Question1.class);
-                                intent.putExtra("NOME", nome1);
-                                intent.putExtra("IDADE", idade1);
+                                intent.putExtra("NOME", nomeCapturado);
+                                intent.putExtra("IDADE", idadeCapturada);
                                 startActivity(intent);
                             }
                         }, 4000);
@@ -76,32 +72,30 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-    //escreve info dentro do preferences
+
     @Override
     protected void onStop() {
         super.onStop();
 
         SharedPreferences.Editor editor = preferences.edit();
         String nomeCapturado = nome.getText().toString();
+        String idadeCapturada = idade.getText().toString();
 
         if(!nomeCapturado.equals("")){
             editor.putString(NOME, nomeCapturado);
             editor.apply();
         }
 
-        String idadeCapturado = idade.getText().toString();
-        if(!idadeCapturado.equals("")){
-            editor.putString(IDADE, idadeCapturado);
-            //editor.commit();// commit faz persistencia de forma sincrona ou
+        if(!idadeCapturada.equals("")){
+            editor.putString(IDADE, idadeCapturada);
             editor.apply();
         }
     }
-    //para carregar os dados inseridos nos textInputs, caso saia da tela
+
     @Override
     protected void onResume() {
         super.onResume();
 
-        //Carregar o preferences
         preferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
 
         if(preferences.contains(NOME)){
@@ -112,8 +106,8 @@ public class Login extends AppCompatActivity {
 
         if(preferences.contains(IDADE)){
 
-            String emailCapturado = preferences.getString(IDADE,"");
-            idade.setText(emailCapturado);
+            String idadeCapturada = preferences.getString(IDADE,"");
+            idade.setText(idadeCapturada);
         }
     }
 }

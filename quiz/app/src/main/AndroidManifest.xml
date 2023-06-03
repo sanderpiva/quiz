@@ -23,25 +23,19 @@
             android:name=".Question3"
             android:exported="false"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Question2" />
+
         </activity>
         <activity
             android:name=".Question2"
             android:exported="false"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Question1" />
+
         </activity>
         <activity
             android:name=".Question1"
             android:exported="false"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Login" />
+
         </activity>
         <activity
             android:name=".Login"

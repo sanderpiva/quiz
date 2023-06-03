@@ -4,20 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 public class Question3 extends AppCompatActivity {
-    Button btnAq3, btnBq3, btnCq3, btnDq3, btnPegaResposta3;
-    TextView textViewPontoAcumuladoAteRespostaQ3, textViewPegaResposta3;
+    Button btnAq3, btnBq3, btnCq3, btnDq3, btnPegaRespostaQ3;
+    TextView textViewPontoAcumuladoAteRespostaQ3, textViewPegaRespostaQ3;
     ProgressBar pb;
-    private String pegaResposta3="";
+    private String pegaRespostaQ3="";
     private String nome, idade;
     private int pontoAcumuladoAteQ3=0;
 
@@ -29,51 +27,48 @@ public class Question3 extends AppCompatActivity {
         Intent intentChamadora = getIntent();
         String pontoQ2 = intentChamadora.getStringExtra("PontoAcumuladoAteQ2");
         pontoAcumuladoAteQ3 = Integer.parseInt(pontoQ2);
-        String nomeTransicao = intentChamadora.getStringExtra("NOME");
-        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
-
-        nome = nomeTransicao;
-        idade = idadeTransicao;
+        nome = intentChamadora.getStringExtra("NOME");
+        idade = intentChamadora.getStringExtra("IDADE");
 
         iniciaDados();
 
         textViewPontoAcumuladoAteRespostaQ3.setText(String.valueOf(pontoAcumuladoAteQ3));
 
         btnAq3.setOnClickListener(view -> {
-            textViewPegaResposta3.setText("A");
-            pegaResposta3 = textViewPegaResposta3.getText().toString();
-            CorButtonQ3 cor = new CorButtonQ3(pegaResposta3, btnAq3, btnBq3, btnCq3, btnDq3);
+            textViewPegaRespostaQ3.setText("A");
+            pegaRespostaQ3 = textViewPegaRespostaQ3.getText().toString();
+            CorButtonQ3 cor = new CorButtonQ3(pegaRespostaQ3, btnAq3, btnBq3, btnCq3, btnDq3);
         });
 
         btnBq3.setOnClickListener(view -> {
 
-            textViewPegaResposta3.setText("B");
-            pegaResposta3 = textViewPegaResposta3.getText().toString();
-            CorButtonQ3 cor = new CorButtonQ3(pegaResposta3, btnAq3, btnBq3, btnCq3, btnDq3);
+            textViewPegaRespostaQ3.setText("B");
+            pegaRespostaQ3 = textViewPegaRespostaQ3.getText().toString();
+            CorButtonQ3 cor = new CorButtonQ3(pegaRespostaQ3, btnAq3, btnBq3, btnCq3, btnDq3);
         });
 
         btnCq3.setOnClickListener(view -> {
-            textViewPegaResposta3.setText("C");
-            pegaResposta3 = textViewPegaResposta3.getText().toString();
-            CorButtonQ3 cor = new CorButtonQ3(pegaResposta3, btnAq3, btnBq3, btnCq3, btnDq3);
+            textViewPegaRespostaQ3.setText("C");
+            pegaRespostaQ3 = textViewPegaRespostaQ3.getText().toString();
+            CorButtonQ3 cor = new CorButtonQ3(pegaRespostaQ3, btnAq3, btnBq3, btnCq3, btnDq3);
         });
 
         btnDq3.setOnClickListener(view -> {
 
-            textViewPegaResposta3.setText("D");
-            pegaResposta3 = textViewPegaResposta3.getText().toString();
-            CorButtonQ3 cor = new CorButtonQ3(pegaResposta3, btnAq3, btnBq3, btnCq3, btnDq3);
+            textViewPegaRespostaQ3.setText("D");
+            pegaRespostaQ3 = textViewPegaRespostaQ3.getText().toString();
+            CorButtonQ3 cor = new CorButtonQ3(pegaRespostaQ3, btnAq3, btnBq3, btnCq3, btnDq3);
         });
 
-        btnPegaResposta3.setOnClickListener(view -> {
+        btnPegaRespostaQ3.setOnClickListener(view -> {
 
-            if(pegaResposta3.isEmpty()){
+            if(pegaRespostaQ3.isEmpty()){
                 Toast toast = Toast.makeText(view.getContext(), "Escolha uma resposta", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else{
 
-                switch (pegaResposta3){
+                switch (pegaRespostaQ3){
 
                     case "A":
 
@@ -108,9 +103,9 @@ public class Question3 extends AppCompatActivity {
         btnBq3 = findViewById(R.id.btnBq3);
         btnCq3 = findViewById(R.id.btnCq3);
         btnDq3 = findViewById(R.id.btnDq3);
-        btnPegaResposta3 = findViewById((R.id.resposta3));
+        btnPegaRespostaQ3 = findViewById((R.id.resposta3));
         textViewPontoAcumuladoAteRespostaQ3 = findViewById(R.id.textViewPontoTela3);
-        textViewPegaResposta3 = findViewById(R.id.textViewPegaResposta3);
+        textViewPegaRespostaQ3 = findViewById(R.id.textViewPegaResposta3);
         pb = findViewById(R.id.progressBar3);
         pb.setVisibility(View.INVISIBLE);
     }

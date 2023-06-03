@@ -4,42 +4,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Resultado extends AppCompatActivity {
-
-    TextView textViewPontoRespostaFinal;
-    TextView premio;
-    ImageView image;
-    private String pontoTotal;
-    private String nome;
-    private String idade;
-
-    private TextView ganhador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
 
+        TextView textViewPontoRespostaFinal;
+
         Intent intentChamadora = getIntent();
-        pontoTotal = intentChamadora.getStringExtra("PontoAcumuladoAteQ3");
+        String pontoTotal = intentChamadora.getStringExtra("PontoAcumuladoAteQ3");
         textViewPontoRespostaFinal = findViewById(R.id.textViewResultado);
         textViewPontoRespostaFinal.setText(pontoTotal);
 
-        String nomeTransicao = intentChamadora.getStringExtra("NOME");
-        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
+        String nome = intentChamadora.getStringExtra("NOME");
+        String idade = intentChamadora.getStringExtra("IDADE");
 
-        nome=nomeTransicao;
-        idade=idadeTransicao;
+        int idadeInt = Integer.parseInt(idade);
 
-        Integer idadeInt = Integer.parseInt(idade);
+        TextView ganhador;
+        TextView premio;
+        ImageView image;
 
         if(pontoTotal.equals("3") && (idadeInt>13 && idadeInt<=25)){
            ganhador = findViewById(R.id.textViewGanhador);
-           ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
+           ganhador.setText("Ganhador: "+ nome +", idade: "+ idade +" anos");
            premio = findViewById(R.id.textViewPremio);
            premio.setText("Ganhou Viagem HopiHari");
            image = findViewById(R.id.imageViewPremio);
@@ -47,7 +40,7 @@ public class Resultado extends AppCompatActivity {
 
         }else if(pontoTotal.equals("3") && (idadeInt>=26)){
             ganhador = findViewById(R.id.textViewGanhador);
-            ganhador.setText("Ganhador: "+nome+", idade: "+idade+" anos");
+            ganhador.setText("Ganhador: "+ nome +", idade: "+ idade +" anos");
             premio = findViewById(R.id.textViewPremio);
             premio.setText("Ganhou Viagem Caldas Novas GO");
             image = findViewById(R.id.imageViewPremio);

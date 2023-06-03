@@ -13,11 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 public class Question1 extends AppCompatActivity {
-
-    Button btnAq1, btnBq1, btnCq1, btnDq1, btnPegaResposta1;
-    TextView textViewPontoAcumuladoAteRespostaQ1, textViewPegaResposta1;
+    Button btnAq1, btnBq1, btnCq1, btnDq1, btnPegaRespostaQ1;
+    TextView textViewPontoAcumuladoAteRespostaQ1, textViewPegaRespostaQ1;
     ProgressBar pb;
-    private String pegaResposta1="";
+    private String pegaRespostaQ1="";
     private int pontoAcumuladoAteQ1=0;
     private String nome, idade;
 
@@ -27,11 +26,8 @@ public class Question1 extends AppCompatActivity {
         setContentView(R.layout.activity_question1);
 
         Intent intentChamadora = getIntent();
-        String nomeTransicao = intentChamadora.getStringExtra("NOME");
-        String idadeTransicao = intentChamadora.getStringExtra("IDADE");
-
-        nome = nomeTransicao;
-        idade = idadeTransicao;
+        nome = intentChamadora.getStringExtra("NOME");
+        idade = intentChamadora.getStringExtra("IDADE");
 
         iniciaDados();
 
@@ -39,41 +35,41 @@ public class Question1 extends AppCompatActivity {
 
         btnAq1.setOnClickListener(view -> {
 
-            textViewPegaResposta1.setText("A");
-            pegaResposta1 = textViewPegaResposta1.getText().toString();
-            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
+            textViewPegaRespostaQ1.setText("A");
+            pegaRespostaQ1 = textViewPegaRespostaQ1.getText().toString();
+            CorButtonQ1 cor = new CorButtonQ1(pegaRespostaQ1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnBq1.setOnClickListener(view -> {
 
-            textViewPegaResposta1.setText("B");
-            pegaResposta1 = textViewPegaResposta1.getText().toString();
-            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
+            textViewPegaRespostaQ1.setText("B");
+            pegaRespostaQ1 = textViewPegaRespostaQ1.getText().toString();
+            CorButtonQ1 cor = new CorButtonQ1(pegaRespostaQ1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnCq1.setOnClickListener(view -> {
 
-            textViewPegaResposta1.setText("C");
-            pegaResposta1 = textViewPegaResposta1.getText().toString();
-            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
+            textViewPegaRespostaQ1.setText("C");
+            pegaRespostaQ1 = textViewPegaRespostaQ1.getText().toString();
+            CorButtonQ1 cor = new CorButtonQ1(pegaRespostaQ1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
         btnDq1.setOnClickListener(view -> {
 
-            textViewPegaResposta1.setText("D");
-            pegaResposta1 = textViewPegaResposta1.getText().toString();
-            CorButtonQ1 cor = new CorButtonQ1(pegaResposta1, btnAq1, btnBq1, btnCq1, btnDq1);
+            textViewPegaRespostaQ1.setText("D");
+            pegaRespostaQ1 = textViewPegaRespostaQ1.getText().toString();
+            CorButtonQ1 cor = new CorButtonQ1(pegaRespostaQ1, btnAq1, btnBq1, btnCq1, btnDq1);
         });
 
-        btnPegaResposta1.setOnClickListener(view -> {
+        btnPegaRespostaQ1.setOnClickListener(view -> {
 
-            if(pegaResposta1.isEmpty()){
+            if(pegaRespostaQ1.isEmpty()){
                 Toast toast = Toast.makeText(view.getContext(), "Escolha uma resposta", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else{
 
-                switch (pegaResposta1){
+                switch (pegaRespostaQ1){
 
                     case "A":
 
@@ -106,16 +102,16 @@ public class Question1 extends AppCompatActivity {
         btnBq1 = findViewById(R.id.btnBq1);
         btnCq1 = findViewById(R.id.btnCq1);
         btnDq1 = findViewById(R.id.btnDq1);
-        btnPegaResposta1 = findViewById((R.id.resposta1));
+        btnPegaRespostaQ1 = findViewById((R.id.resposta1));
         textViewPontoAcumuladoAteRespostaQ1 = findViewById(R.id.textViewPontoTela1);
-        textViewPegaResposta1 = findViewById(R.id.textViewPegaResposta1);
+        textViewPegaRespostaQ1 = findViewById(R.id.textViewPegaResposta1);
         pb = findViewById(R.id.progressBarQ1);
         pb.setVisibility(View.INVISIBLE);
     }
     public void proximaTela(){
 
         pb.setVisibility(View.VISIBLE);
-        // Crie um Handler para lidar com atrasos
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
