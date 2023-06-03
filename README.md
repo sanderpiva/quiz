@@ -1,6 +1,6 @@
 # Quiz sobre Sistemas Operacionais
 <hr>
-<p style="text-align: justify;">Imagine uma agência de viagens que quer divulgar seus serviços em escolas de informática. A partir de um aplicativo promocional, alunos com idade mínima de 14 anos poderão realizar um Quiz sobre Sistemas Operacionais e, caso acerte todas as respostas, dependendo da idade, ganhará um prêmio.</p>
+<p style="text-align: justify;">Imagine uma agência de viagens que quer divulgar seus serviços em escolas de informática. A partir de um aplicativo promocional, alunos com idade mínima de 14 anos poderão realizar um Quiz sobre Sistemas Operacionais e, caso acertem todas as respostas, dependendo da idade, ganhará um prêmio.</p>
 
 <p style="text-align: justify;">Idade entre 14 e 25 anos uma viagem para o Hopi Hari. Idade superior a 25 anos, Caldas Novas GO.</p>
 
