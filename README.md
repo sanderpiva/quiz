@@ -1,4 +1,4 @@
-# Quiz
+# Quiz sobre Sistemas Operacionais
 <hr>
 <p style="text-align: justify;">Imagine uma agência de viagens que quer divulgar seus serviços em escolas de informática. A partir de um aplicativo promocional, alunos com idade mínima de 14 anos poderão realizar um Quiz sobre Sistemas Operacionais e, caso acerte todas as respostas, dependendo da idade, ganhará um prêmio.</p>
 
